@@ -1,0 +1,49 @@
+/* event.module.css */
+ 
+ .event i {
+   color: red;
+   font-size: 14px;
+ } 
+ .event div {
+   padding: 10px;
+ } 
+ .event .heading {
+   padding: 7px;
+   color: #fff;
+   background: #044785;
+   text-align: center;
+   font-size: 18px;
+   font-weight: 400;
+   margin-bottom: 10px;
+ } 
+ .event ul li {
+   margin-bottom: 20px;
+   width: 100%;
+   float: left;
+   list-style: none;
+ }
+ 
+ .event-date {
+   background: red;
+   float: left;
+   text-align: center;
+   font-size: 14px;
+   color: #fff;
+   padding: 8px 12px;
+   margin-right: 10px;
+ } 
+ .campus-news h2 {
+   font-weight: 600;
+   font-size: 16px;
+ }
+ 
+ .campus-news h6 {
+   font-weight: 500;
+   font-size: 13px;
+   color: red;
+ }
+ 
+ .campus-news p {
+   font-size: 14px;
+ }
+ 

@@ -1,0 +1,141 @@
+.bbb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  font-family: "Jost", sans-serif;
+  background: linear-gradient(to top, #006599, #302b63cd, #ff9933af);
+  letter-spacing: 1px;
+}
+
+.main {
+  background: linear-gradient(to bottom, #006599, #302b63, #ff9933);
+  width: 350px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 10px 30px 60px #2020202c;
+}
+#chk {
+  display: none;
+}
+.signup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+label {
+  height: 20%;
+  color: #fff;
+  font-size: 2.3em;
+  font-weight: bold;
+  cursor: pointer;
+}
+input {
+  background: #f0efef;
+  padding: 13px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+.button {
+  letter-spacing: 1.5px;
+  padding: 9px;
+  color: #fff;
+  background: #573b8a;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  border-radius: 3px;
+}
+button:hover {
+  background: #6d44b8;
+}
+
+/* .login label {
+    color: #fff;
+    transform: scale(0.7);
+  } */
+
+/*--thank you pop starts here--*/
+
+.modal-confirm {
+  color: #636363;
+  width: 325px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-confirm .modal-content {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.4s;
+  background-color: rgb(240, 239, 239);
+}
+
+.modal-confirm .modal-header {
+  border-bottom: none;
+  position: relative;
+  
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 10px;
+  color: rgb(45, 44, 44);
+}
+
+.modal-confirm .form-control,
+.modal-confirm .btn {
+  min-height: 40px;
+  border-radius: 3px;
+}
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.modal-confirm .icon-box {
+    animation: fill 0.2s ease-in-out 0.3s forwards,
+    scale 0.4s ease-in-out 0.9s both;  
+  color: #fff;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -70px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: #82ce34;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+} 
+.modal-confirm .icon-box i {
+  font-size: 58px;
+  position: relative;
+  top: 3px; 
+ } 
+
+.modal-confirm .btnt {
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  background: #82ce34;
+  transition: all 0.4s;
+  line-height: normal;
+  border: none;
+  cursor: auto;
+  padding: 10px; 
+} 
+
+/*--thank you pop ends here--*/
