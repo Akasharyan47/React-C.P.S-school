@@ -109,7 +109,7 @@ const Home = () => {
           <div className="wlcm4">
             <span> </span>
           </div>
-          <div className="wlcm3">
+          <div className="wlcm3 ">
             <span>
               The purpose of education is to make good human beings with skill
               and expertise…Enlightened human beings can be created by teachers.
