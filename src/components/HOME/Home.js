@@ -103,7 +103,7 @@ const Home = () => {
             <span> Welcome to </span>
           </div>
           <div className="wlcm2">
-            <span> CENTRAL PUBLIC SCHOOL hello  </span>
+            <span> CENTRAL PUBLIC SCHOOL</span>
             <p> ( Ghusia kalan )</p>
           </div>
           <div className="wlcm4">
