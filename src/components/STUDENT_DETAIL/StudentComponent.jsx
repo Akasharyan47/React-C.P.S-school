@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Dropdown from "react-bootstrap/Dropdown";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import DropdownButton from "react-bootstrap/DropdownButton"; 
  
 
 export const StudentDetail1 = () => {
@@ -40,11 +40,7 @@ export const StudentDetail1 = () => {
         display: inline-flex;
         padding: 4px 15px;
         border-radius: 2px;
-        cursor: pointer;
-        a {
-          font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
-          color: white;
-        }
+        cursor: pointer; 
       }
     }
     .headmasterdetail { 
@@ -72,33 +68,32 @@ export const StudentDetail1 = () => {
       <section>
         <div id="show1" className="headmaster pt-3">
           <div className="headmasterbox">
-            <ul>
-              <h2><br></br></h2>
-
+            <ul>  
               <li>
-                <a className="pfdetail "> Profile Detail</a>
+                <span className="text-light">Profile Detail 
+                </span>
               </li>
               <li>
-                <a className="pfedit">Edit Detail</a>
+                <span className="pfedit text-light">Edit Detail</span>
               </li>
             </ul>
           </div>
           <div className="headmasterdetail">
             <ul>
               <li>
-                <a className="hdname">Name </a>
+                <span  className="hdname">Name </span>
               </li>
               <li>
-                <a className="dsgn">Designation </a>
+                <span className="dsgn">Designation </span>
               </li>
               <li>
-                <a className="dob">Date of Birth</a>
+                <span className="dob">Date of Birth</span>
               </li>
               <li>
-                <a className="eml">Email</a>
+                <span className="eml">Email</span>
               </li>
               <li>
-                <a className="cnumber">Contact Number</a>
+                <span className="cnumber">Contact Number</span>
               </li> 
             </ul>
             <ul>
@@ -192,7 +187,7 @@ const StudentDetail2 = () => {
       align-items: center;
       display: flex;
     }
-    .search a {
+    .search span {
       color: #4e4c4c;
       font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
     }
@@ -215,7 +210,7 @@ const StudentDetail2 = () => {
       align-items: center;
       display: inline-flex;
     }
-    .totaldtudent a {
+    .totaldtudent span {
       margin: 4px;
       font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
       color: #7f7f7f;
@@ -263,13 +258,10 @@ const StudentDetail2 = () => {
   const handleSelect = (sd) => {
     setSelectedClass(sd);
   };
-  const [classData, setClassData] = useState([]);   
-  const [searchTerm, setSearchTerm] = useState('');
- 
-
-  useEffect(() => {
-    // Load data from the JSON file when the component mounts
-    fetch('studentlist.json') // Replace with the correct path to your JSON file
+  const [classData, setClassData] = useState([]);    
+  
+  useEffect(() => {  
+    fetch('studentlist.json')  
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -337,16 +329,16 @@ const StudentDetail2 = () => {
                 </DropdownButton>
               </div>
               <div className="search">
-                <a > Search Students </a>
+                <span> Search Students </span>
                  <input className="searchterm"
                  placeholder="Enter  name "
                  ></input>
               </div>
               <div className="totaldtudent">
-                <a> Total Students</a>
-                <a  id="tnum" className="tstudent pt-0 pb-0">
+                <span> Total Students</span>
+                <span  id="tnum" className="tstudent pt-0 pb-0">
                   {classData.length}
-                </a>
+                </span>
               </div>
             </div>
             <div className="container-fluid d-flex justify-content-center m-0 ">
