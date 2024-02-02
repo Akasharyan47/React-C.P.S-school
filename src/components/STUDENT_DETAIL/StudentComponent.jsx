@@ -260,26 +260,24 @@ const StudentDetail2 = () => {
   };
   const [classData, setClassData] = useState([]);    
   
-  useEffect(() => {  
-    fetch('studentlist.json')  
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+  useEffect(() => {
+    fetch('/studentlist.json')
+      .then((response) => response.json())
       .then((data) => {
+        console.log('Fetched data:', data);
         if (data && data.data && data.data[selectedClass]) {
           setClassData(data.data[selectedClass]);
         } else {
-          console.error('Class data not found');
+          console.error('Class data not found for', selectedClass);
         }
       })
       .catch((error) => {
         console.error('Error loading data:', error);
       });
   }, [selectedClass]);
-  console.log(classData)
+  console.log('Selected Class:', selectedClass);
+  console.log('Class Data:', classData);
+  
 
   return (
     <Main>
