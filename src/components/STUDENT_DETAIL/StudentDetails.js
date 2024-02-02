@@ -238,7 +238,8 @@ const StudentDetails = () => {
       }
       .b {
         span {
-          width: 100px;
+            width:fit-content; 
+            padding-right:10px;
         }
       }
     }
@@ -294,7 +295,7 @@ const StudentDetails = () => {
                   <img className="img-fluid" src={userLogo} alt=""></img>
                 </div>
                 <div className="box b align-self-end">
-                  <span>{parsed.Name}</span>
+                  <span>Akash Ku. Aaryan</span>
                 </div>
                 <div className="box c">
                   <span onClick={logoutBtn} type="submit">

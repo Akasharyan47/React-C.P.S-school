@@ -261,6 +261,7 @@ const StudentDetail2 = () => {
     setSelectedClass(sd);
   };
   const [classData, setClassData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     if (studentListData && studentListData.data && studentListData.data[selectedClass]) {
@@ -270,6 +271,12 @@ const StudentDetail2 = () => {
     }
   }, [selectedClass]);
 
+  const filteredClassData = classData.filter(student =>
+    student.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    student.id.toString().includes(searchQuery)
+  );
+
+  
   console.log(classData);
 
   return (
@@ -323,12 +330,16 @@ const StudentDetail2 = () => {
                 <span> Search Students </span>
                  <input className="searchterm"
                  placeholder="Enter  name "
+                 type="text" 
+                 value={searchQuery}
+                 onChange={(e) => setSearchQuery(e.target.value)}
+
                  ></input>
               </div>
               <div className="totaldtudent">
                 <span> Total Students</span>
                 <span  id="tnum" className="tstudent pt-0 pb-0">
-                  {classData.length}
+                  {filteredClassData.length}
                 </span>
               </div>
             </div>
@@ -346,7 +357,7 @@ const StudentDetail2 = () => {
                     </tr>
                   </thead> 
                   <tbody>
-                    {classData.map((student) => (
+                    {filteredClassData.map((student) => (
                       <tr key={student.id}>
                         <td>{student.name}</td>
                         <td>{student.id}</td>
