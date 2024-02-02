@@ -3,7 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton"; 
- 
+import studentListData from '../../Data/studentList.json';
 
 export const StudentDetail1 = () => {
 
@@ -254,30 +254,23 @@ const StudentDetail2 = () => {
          }
       } 
   `;
+  
+
   const [selectedClass, setSelectedClass] = useState("STD ");
   const handleSelect = (sd) => {
     setSelectedClass(sd);
   };
-  const [classData, setClassData] = useState([]);    
-  
+  const [classData, setClassData] = useState([]);
+
   useEffect(() => {
-    fetch('/studentlist.json')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Fetched data:', data);
-        if (data && data.data && data.data[selectedClass]) {
-          setClassData(data.data[selectedClass]);
-        } else {
-          console.error('Class data not found for', selectedClass);
-        }
-      })
-      .catch((error) => {
-        console.error('Error loading data:', error);
-      });
+    if (studentListData && studentListData.data && studentListData.data[selectedClass]) {
+      setClassData(studentListData.data[selectedClass]);
+    } else {
+      console.error('Class data not found');
+    }
   }, [selectedClass]);
-  console.log('Selected Class:', selectedClass);
-  console.log('Class Data:', classData);
-  
+
+  console.log(classData);
 
   return (
     <Main>
