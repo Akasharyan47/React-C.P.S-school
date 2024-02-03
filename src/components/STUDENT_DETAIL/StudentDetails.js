@@ -240,11 +240,12 @@ const StudentDetails = () => {
   align-items: center;
   flex-direction: row;
   display: flex;
-  gap: 6px;
+  gap: 10px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     flex-direction: column; 
     justify-content: center;
+    gap: 4px;
   }
 
   .btn {
