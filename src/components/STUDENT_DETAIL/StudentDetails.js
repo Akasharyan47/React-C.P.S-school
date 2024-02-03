@@ -228,48 +228,53 @@ const StudentDetails = () => {
       gap: 10px;
     }
 
+    .studentdetail {
+  min-width: auto;
+  width: min-content;
+  float: right;
+  justify-content: right;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    flex-direction: column;
+  }
+
+  .btn {
+    min-width: max-content;
+    padding: 3px 18px 3px 18px;
+    font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
+    font-weight: 500;
+    background-color: rgb(51, 63, 80);
+    color: whitesmoke;
+    cursor: pointer;
+
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
-      .studentdetail {
-        flex-direction: column;
-      }
-      .studentdetail .btn {
-        padding: 2px 5px 2px 5px;
-        font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
-      }
-      .b {
-        span {
-            width:fit-content; 
-            padding-right:10px;
-        }
-      }
+      min-width: max-content; 
+      padding: 3px 14px 3px 14px;
+      font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
     }
-    .a {
-      grid-column: 1;
-      grid-row: 1 / 3;
-      img {
-        width: 80%;
-        height: 80%;
-        background-position: center;
-        background-size: cover;
-        border-radius: 50%;
-      }
-    
-    }
+  }
+}
 
-    .studentdetail btn {
-      min-width: max-content;
-      padding: 2px 18px 3px 18px;
+.b {
+  span {
+    background-color: ${({ theme }) => theme.colors.backgroundBlue};
+    color: rgb(247, 247, 247);
+    display: block;
+    padding: 3px 0 3px 8px;
+    min-width: min-content;
 
-      font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
-      font-weight: 500;
-      background-color: rgb(238, 238, 238);
-      color: #495057;
-      cursor: pointer;
+    @media (max-width: ${({ theme }) => theme.media.mobile}) {
+      width: fit-content;
+      padding-right: 10px;
     }
-    .studentdetail btn:hover {
-      background-color: rgb(214, 212, 212);
-    }
-    .studentdetail btn:active {
+  }
+}
+
+    .studentdetail .btn:active {
       background-color: rgb(214, 212, 212);
       box-shadow: 0 1px #666;
       transform: translateY(1px);
@@ -301,7 +306,7 @@ const StudentDetails = () => {
       ) : (
         <>
           <div className="main1 m-0 ">
-            <div className="p-4 d-flex justify-content-between bg-dark">
+            <div className="p-4 d-flex justify-content-between bg-light">
               <div className="wrapper">
                 <div className="box a">
                   <img className="img-fluid" src={userLogo} alt=""></img>
@@ -318,7 +323,7 @@ const StudentDetails = () => {
 
               <div className="studentdetail ">
                 <Button
-                  className="btn"
+                  className="btn "
                   onClick={() => setActive("first")}
                   variant="light"
                 >

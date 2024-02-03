@@ -8,105 +8,119 @@ import studentListData from '../../Data/studentList.json';
 export const StudentDetail1 = () => {
 
   const Main = styled.section`
-    /* ====   START   HEADMASTER DETAIL  === */
-    @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    letter-spacing: 0.6px;
- 
-    *::-webkit-scrollbar {
-      width: 10px;
+  /* ====   START   HEADMASTER DETAIL  === */
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,100,200,300');
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  letter-spacing: 0.6px;
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #e9ecef;
+  }
+
+  .headmaster {
+    width: 100%;
+    height: auto;
+  }
+
+  .headmasterbox {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    height: 80px;
+    align-items: center;
+
+    li {
+      margin-right: 25px;
+      background-color: #333f50;
+      display: inline-flex;
+      padding: 4px 15px;
+      border-radius: 2px;
+      cursor: pointer;
+      color: #fff;
+
+      @media (max-width: ${({ theme }) => theme.media.mobile}) {
+      margin-right: 10px; 
+      display: inline-flex;
+      padding: 4px 10px;
+     }
+
     }
-    *::-webkit-scrollbar-thumb {
-      border-radius: 20px;
-      background: #e9ecef;
-    }
-    .headmaster {
-      width: 100%;
-      height: auto;
-    }
-    .headmasterbox { 
-      padding-top: 20px;
-      width: 100%;
-      display: block;
-      height: 80px;
-      align-items: center;
+  }
+
+  .headmasterdetail {
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+      width: max-content;
+      height: fit-content;
+      gap: 80px;
+
       li {
-        margin-right: 25px;
-        background-color: #333f50;
-        display: inline-flex;
-        padding: 4px 15px;
-        border-radius: 2px;
-        cursor: pointer; 
+        color: #3f3e3e;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
       }
     }
-    .headmasterdetail { 
-      display: flex;
-      width: 100%;
-      height: 40vh;
-      justify-content: center;
-      align-items: center;
-      ul { 
-        width: max-content;
-        height: fit-content;
-        
-        gap: 80px; 
-        li {
-          color: #3f3e3e;
-          font-weight: bold;
-          letter-spacing: 1px; 
-           font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
-        }
-      }
-    }
-  `;
+  }
+`;
+
   return (
     <Main>
-      <section>
-        <div id="show1" className="headmaster pt-3">
-          <div className="headmasterbox">
-            <ul>  
-              <li>
-                <span className="text-light">Profile Detail 
-                </span>
-              </li>
-              <li>
-                <span className="pfedit text-light">Edit Detail</span>
-              </li>
-            </ul>
-          </div>
-          <div className="headmasterdetail">
-            <ul>
-              <li>
-                <span  className="hdname">Name </span>
-              </li>
-              <li>
-                <span className="dsgn">Designation </span>
-              </li>
-              <li>
-                <span className="dob">Date of Birth</span>
-              </li>
-              <li>
-                <span className="eml">Email</span>
-              </li>
-              <li>
-                <span className="cnumber">Contact Number</span>
-              </li> 
-            </ul>
-            <ul>
-            <li>: Akash Kumar Aaryan </li>
-              <li>: Developer </li>
-              <li>: 09-06-2001 </li>
-              <li>: akasharyan.aryan@gmail.com </li>
-              <li>: +917254973847 </li>
-            </ul>
-          </div>
+    <section>
+      <div id="show1" className="headmaster pt-3">
+        <div className="headmasterbox">
+          <ul>
+            <li>
+              <span className="text-light">Profile Detail</span>
+            </li>
+            <li>
+              <span className="pfedit text-light">Edit Detail</span>
+            </li>
+          </ul>
         </div>
-      </section>
-    </Main>
+        <div className="headmasterdetail bg-light">
+          <ul>
+            <li>
+              <span className="hdname">Name </span>
+            </li>
+            <li>
+              <span className="dsgn">Designation </span>
+            </li>
+            <li>
+              <span className="dob">Date of Birth</span>
+            </li>
+            <li>
+              <span className="eml">Email</span>
+            </li>
+            <li>
+              <span className="cnumber">Contact Number</span>
+            </li>
+          </ul>
+          <ul>
+            <li>: Akash Kumar Aaryan </li>
+            <li>: Developer </li>
+            <li>: 09-06-2001 </li>
+            <li>: akasharyan.aryan@gmail.com </li>
+            <li>: +917254973847 </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </Main>
   );
 };
 
