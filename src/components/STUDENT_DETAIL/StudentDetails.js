@@ -164,7 +164,7 @@ const StudentDetails = () => {
       display: flex;
       padding: 18px;
     }
-    .wrapper {
+    .wrapper { 
       overflow: hidden;
       width: min-content;
       display: grid;
@@ -209,7 +209,11 @@ const StudentDetails = () => {
         color: rgb(238, 238, 238);
         cursor: pointer;
         overflow: hidden;
+        @media (max-width: ${({ theme }) => theme.media.mobile}) {
+          padding: 3px 10px;
+       }
       }
+
     }
     /*  START   LOGIN INFORMATION */
 
@@ -228,7 +232,7 @@ const StudentDetails = () => {
       gap: 10px;
     }
 
-    .studentdetail {
+  .studentdetail { 
   min-width: auto;
   width: min-content;
   float: right;
@@ -236,10 +240,11 @@ const StudentDetails = () => {
   align-items: center;
   flex-direction: row;
   display: flex;
-  gap: 10px;
+  gap: 6px;
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    flex-direction: column;
+    flex-direction: column; 
+    justify-content: center;
   }
 
   .btn {
@@ -253,16 +258,16 @@ const StudentDetails = () => {
 
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
       min-width: max-content; 
-      padding: 3px 14px 3px 14px;
+      padding: 3px 11px;
       font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
     }
   }
 }
 
-.b {
+.b { 
   span {
     background-color: ${({ theme }) => theme.colors.backgroundBlue};
-    color: rgb(247, 247, 247);
+     color: rgb(247, 247, 247);
     display: block;
     padding: 3px 0 3px 8px;
     min-width: min-content;
@@ -270,6 +275,7 @@ const StudentDetails = () => {
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
       width: fit-content;
       padding-right: 10px;
+      padding: 3px 10px;
     }
   }
 }
