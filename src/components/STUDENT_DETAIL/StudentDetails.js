@@ -211,7 +211,6 @@ const StudentDetails = () => {
         overflow: hidden;
       }
     }
-    
     /*  START   LOGIN INFORMATION */
 
     /*  END  LOGIN INFORMATION   ============ */
@@ -235,7 +234,7 @@ const StudentDetails = () => {
       }
       .studentdetail .btn {
         padding: 2px 5px 2px 5px;
-        font-size: 1.4rem;
+        font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
       }
       .b {
         span {
@@ -244,12 +243,24 @@ const StudentDetails = () => {
         }
       }
     }
+    .a {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      img {
+        width: 80%;
+        height: 80%;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+      }
+    
+    }
 
-    .studentdetail .btn {
+    .studentdetail btn {
       min-width: max-content;
-      padding: 5px 18px 5px 18px;
+      padding: 2px 18px 3px 18px;
 
-      font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
+      font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
       font-weight: 500;
       background-color: rgb(238, 238, 238);
       color: #495057;
@@ -263,7 +274,7 @@ const StudentDetails = () => {
       box-shadow: 0 1px #666;
       transform: translateY(1px);
     } 
-`;
+  `;
 
   return (
     <Main>
@@ -290,7 +301,7 @@ const StudentDetails = () => {
       ) : (
         <>
           <div className="main1 m-0 ">
-            <div className="p-4 d-flex justify-content-between bg-light">
+            <div className="p-4 d-flex justify-content-between bg-dark">
               <div className="wrapper">
                 <div className="box a">
                   <img className="img-fluid" src={userLogo} alt=""></img>
@@ -307,14 +318,14 @@ const StudentDetails = () => {
 
               <div className="studentdetail ">
                 <Button
-                  className="btn bg-dark text-white"
+                  className="btn"
                   onClick={() => setActive("first")}
                   variant="light"
                 >
                   Student Registration
                 </Button>
                 <Button
-                  className="btn bg-dark text-white"
+                  className="btn"
                   onClick={() => setActive("second")}
                   variant="light"
                 >

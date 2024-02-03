@@ -78,7 +78,6 @@ export const StudentDetail1 = () => {
               </li>
             </ul>
           </div>
-          
           <div className="headmasterdetail">
             <ul>
               <li>
