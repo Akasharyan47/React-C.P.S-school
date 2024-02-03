@@ -132,7 +132,7 @@ const Navbar = () => {
   return (
     <Nav>
       <div className={openMenu ? "menuIcon active" : "menuIcon"}>
-        <ul className="navbar-list">  
+        <ul className="navbar-list ">  
           <li>
             <NavLink
               className="navbar-link"
@@ -189,6 +189,7 @@ const Navbar = () => {
               to="/StudentDetails"> STUDENT
             </NavLink>
           </li>
+
           <li>
             <NavLink
               className="navbar-link "
@@ -197,6 +198,8 @@ const Navbar = () => {
               Login
             </NavLink>
           </li> 
+
+
         </ul>
         {/* //nav icon */}
         <div className="mobile-navbar-btn">
