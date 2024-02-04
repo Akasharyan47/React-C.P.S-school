@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton"; 
 import studentListData from '../../Data/studentList.json';
 
-export const StudentDetail1 = () => {
 
   const Main = styled.section`
   /* ====   START   HEADMASTER DETAIL  === */
@@ -78,49 +77,129 @@ export const StudentDetail1 = () => {
   }
 `;
 
+
+export const StudentDetail1 = () => { 
+  const initialDetails = {
+    name: 'Akash Kumar Aaryan',
+    designation: 'Developer',
+    dob: '09-06-2001',
+    email: 'akasharyan.aryan@gmail.com',
+    contactNumber: '+917254973847',
+  };
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedDetails, setEditedDetails] = useState({ ...initialDetails });
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    // Perform save logic with editedDetails
+    // For demonstration purposes, let's update the displayed details in state
+    setIsEditing(false);
+  };
+
+  const handleInputChange = (field, value) => {
+    setEditedDetails((prevDetails) => ({
+      ...prevDetails,
+      [field]: value,
+    }));
+  };
+
   return (
     <Main>
-    <section>
-      <div id="show1" className="headmaster pt-3">
-        <div className="headmasterbox">
-          <ul>
-            <li>
-              <span className="text-light">Profile Detail</span>
-            </li>
-            <li>
-              <span className="pfedit text-light">Edit Detail</span>
-            </li>
-          </ul>
+      <section>
+        <div id="show1" className={`headmaster pt-3 ${isEditing ? 'editing' : ''}`}>
+          <div className="headmasterbox">
+            <ul>
+              <li>
+                <span className="text-light">Profile Detail</span>
+              </li>
+              {isEditing ? (
+                <li>
+                  <span className="pfedit text-light" onClick={handleSaveClick}>
+                    Save
+                  </span>
+                </li>
+              ) : (
+                <li>
+                  <span className="pfedit text-light" onClick={handleEditClick}>
+                    Edit Detail
+                  </span>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div className="headmasterdetail bg-light">
+            {isEditing ? (
+              /* Editable section */
+              <ul>
+                <li>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={editedDetails.name}
+                    onChange={(e) => handleInputChange('name', e.target.value)}
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    placeholder="Designation"
+                    value={editedDetails.designation}
+                    onChange={(e) => handleInputChange('designation', e.target.value)}
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    placeholder="Date of Birth"
+                    value={editedDetails.dob}
+                    onChange={(e) => handleInputChange('dob', e.target.value)}
+                  />
+                </li>
+                <li>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={editedDetails.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                  />
+                </li>
+                <li>
+                  <input
+                    type="tel"
+                    placeholder="Contact Number"
+                    value={editedDetails.contactNumber}
+                    onChange={(e) => handleInputChange('contactNumber', e.target.value)}
+                  />
+                </li>
+              </ul>
+            ) : (
+              /* Display section */
+              <ul>
+                <li>
+                  <span className="hdname">Name </span>: {editedDetails.name}
+                </li>
+                <li>
+                  <span className="dsgn">Designation </span>: {editedDetails.designation}
+                </li>
+                <li>
+                  <span className="dob">Date of Birth</span>: {editedDetails.dob}
+                </li>
+                <li>
+                  <span className="eml">Email</span>: {editedDetails.email}
+                </li>
+                <li>
+                  <span className="cnumber">Contact Number</span>: {editedDetails.contactNumber}
+                </li>
+              </ul>
+            )}
+          </div>
         </div>
-        <div className="headmasterdetail bg-light">
-          <ul>
-            <li>
-              <span className="hdname">Name </span>
-            </li>
-            <li>
-              <span className="dsgn">Designation </span>
-            </li>
-            <li>
-              <span className="dob">Date of Birth</span>
-            </li>
-            <li>
-              <span className="eml">Email</span>
-            </li>
-            <li>
-              <span className="cnumber">Contact Number</span>
-            </li>
-          </ul>
-          <ul>
-            <li>: Akash Kumar Aaryan </li>
-            <li>: Developer </li>
-            <li>: 09-06-2001 </li>
-            <li>: akasharyan.aryan@gmail.com </li>
-            <li>: +917254973847 </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </Main>
+      </section>
+    </Main>
   );
 };
 
