@@ -2,13 +2,13 @@ import styled from "styled-components";
 import Dropdown from "react-bootstrap/Dropdown";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import DropdownButton from "react-bootstrap/DropdownButton"; 
-import studentListData from '../../Data/studentList.json';
+import DropdownButton from "react-bootstrap/DropdownButton";
+import studentListData from "../../Data/studentList.json";
+import ProfileDetailModal from "./ProfileDetailModal";
 
-
-  const Main = styled.section`
+const Main = styled.section`
   /* ====   START   HEADMASTER DETAIL  === */
-  @import url('https://fonts.googleapis.com/css?family=Raleway:400,100,200,300');
+  @import url("https://fonts.googleapis.com/css?family=Raleway:400,100,200,300");
   padding: 0;
   margin: 0;
   list-style: none;
@@ -35,7 +35,7 @@ import studentListData from '../../Data/studentList.json';
     width: 100%;
     display: flex;
     height: 80px;
-    align-items: center; 
+    align-items: center;
 
     li {
       margin-right: 25px;
@@ -47,11 +47,10 @@ import studentListData from '../../Data/studentList.json';
       color: #fff;
 
       @media (max-width: ${({ theme }) => theme.media.mobile}) {
-      margin-right: 10px; 
-      display: inline-flex;
-      padding: 4px 10px;
-     }
-
+        margin-right: 10px;
+        display: inline-flex;
+        padding: 4px 10px;
+      }
     }
   }
 
@@ -61,7 +60,6 @@ import studentListData from '../../Data/studentList.json';
     height: 40vh;
     justify-content: center;
     align-items: center;
-   
 
     ul {
       width: max-content;
@@ -78,18 +76,51 @@ import studentListData from '../../Data/studentList.json';
   }
 `;
 
-
-export const StudentDetail1 = () => { 
+export const StudentDetail1 = () => {
   const initialDetails = {
-    name: 'Akash Kumar Aaryan',
-    designation: 'Developer',
-    dob: '09-06-2001',
-    email: 'akasharyan.aryan@gmail.com',
-    contactNumber: '+917254973847',
+    name: "Akash Kumar Aaryan",
+    designation: "Developer",
+    dob: "09-06-2001",
+    email: "akasharyan.aryan@gmail.com",
+    contactNumber: "+917254973847",
+    location: "Navi Mumbai (Maharashtra)",
+    profile: `
+      Pursuing B.Tech from Bharati Vidyapeeth (DU) College of Engineering in Computer Science and Engineering.
+      My passion lies in the world of web development, where I specialize in creating immersive and user-friendly experiences using React.js.
+      With a strong foundation in both web development principles and React.js.
+    `,
+    technicalSkills: [
+      "HTML5, UI/UX, RESPONSIVE",
+      "CSS3, BOOTSTRAP, MUI, TAILWIND",
+      "REACT JS, REDUX, REACT NATIVE , NEXT JS",
+      "JAVASCRIPT, TYPESCRIPT",
+      "GITHUB, FIGMA, MS OFFICE, REST APIs",
+    ],
+    educationDetails: [
+      {
+        degree: "B Tech (Computer Science and Engineering)", 
+        institution: "Bharati Vidyapeeth Deemed University (2020-24), Navi Mumbai", 
+      },
+      {
+        degree: "Senior Secondary (Science and Mathematics)", 
+        institution: "Patel College (2018-20), BSEB Patna", 
+        
+      },
+      {
+        degree: "Matriculation", 
+        institution: "U M S school (2016),  BSEB Patna", 
+      },
+    ],
+    address: { 
+      area: "Navi Mumbai, Maharashtra", 
+    },
+    hobbies: ["Photography, Tracking, Fitness"],
   };
+  
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedDetails, setEditedDetails] = useState({ ...initialDetails });
+  const [showProfileModal, setShowProfileModal] = useState(false);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -107,15 +138,31 @@ export const StudentDetail1 = () => {
       [field]: value,
     }));
   };
+  const handleProfileDetailClick = () => {
+    console.log("Profile Detail Clicked");
+    setShowProfileModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowProfileModal(false);
+  };
 
   return (
     <Main>
       <section>
-        <div id="show1" className={`headmaster pt-3 ${isEditing ? 'editing' : ''}`}>
+        <div
+          id="show1"
+          className={`headmaster pt-3 ${isEditing ? "editing" : ""}`}
+        >
           <div className="headmasterbox">
             <ul>
-              <li> 
-                <span className="text-light">Profile Detail</span>
+              <li>
+                <span
+                  className="text-light"
+                  onClick={() => handleProfileDetailClick()}
+                >
+                  Profile Detail
+                </span>
               </li>
               {isEditing ? (
                 <li>
@@ -136,53 +183,56 @@ export const StudentDetail1 = () => {
             {isEditing ? (
               /* Editable section */
               <ul className=" w-50 list-unstyled">
-              <li className="mb-2">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Name"
-                  value={editedDetails.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                />
-              </li>
-              <li className="mb-2">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Designation"
-                  value={editedDetails.designation}
-                  onChange={(e) => handleInputChange('designation', e.target.value)}
-                />
-              </li>
-              <li className="mb-2">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Date of Birth"
-                  value={editedDetails.dob}
-                  onChange={(e) => handleInputChange('dob', e.target.value)}
-                />
-              </li>
-              <li className="mb-2">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Email"
-                  value={editedDetails.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                />
-              </li>
-              <li className="mb-2">
-                <input
-                  type="tel"
-                  className="form-control"
-                  placeholder="Contact Number"
-                  value={editedDetails.contactNumber}
-                  onChange={(e) => handleInputChange('contactNumber', e.target.value)}
-                />
-              </li>
-            </ul>
-            
+                <li className="mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Name"
+                    value={editedDetails.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                  />
+                </li>
+                <li className="mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Designation"
+                    value={editedDetails.designation}
+                    onChange={(e) =>
+                      handleInputChange("designation", e.target.value)
+                    }
+                  />
+                </li>
+                <li className="mb-2">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Date of Birth"
+                    value={editedDetails.dob}
+                    onChange={(e) => handleInputChange("dob", e.target.value)}
+                  />
+                </li>
+                <li className="mb-2">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                    value={editedDetails.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                  />
+                </li>
+                <li className="mb-2">
+                  <input
+                    type="tel"
+                    className="form-control"
+                    placeholder="Contact Number"
+                    value={editedDetails.contactNumber}
+                    onChange={(e) =>
+                      handleInputChange("contactNumber", e.target.value)
+                    }
+                  />
+                </li>
+              </ul>
             ) : (
               /* Display section */
               <ul className="">
@@ -190,22 +240,46 @@ export const StudentDetail1 = () => {
                   <span className="hdname">Name </span>: {editedDetails.name}
                 </li>
                 <li>
-                  <span className="dsgn">Designation </span>: {editedDetails.designation}
+                  <span className="dsgn">Designation </span>:{" "}
+                  {editedDetails.designation}
                 </li>
                 <li>
-                  <span className="dob">Date of Birth</span>: {editedDetails.dob}
+                  <span className="dob">Date of Birth</span>:{" "}
+                  {editedDetails.dob}
                 </li>
                 <li>
                   <span className="eml">Email</span>: {editedDetails.email}
                 </li>
                 <li>
-                  <span className="cnumber">Contact Number</span>: {editedDetails.contactNumber}
+                  <span className="cnumber">Contact Number</span>:{" "}
+                  {editedDetails.contactNumber}
                 </li>
               </ul>
             )}
           </div>
         </div>
       </section>
+
+      {showProfileModal  && (
+        <ProfileDetailModal
+          details={{
+            name: editedDetails.name,
+            designation: editedDetails.designation,
+            dob: editedDetails.dob,
+            email: editedDetails.email,
+            contactNumber: editedDetails.contactNumber,
+            educationDetails: editedDetails.educationDetails,
+            technicalSkills:editedDetails.technicalSkills,
+            location:editedDetails.location,
+            profile:editedDetails.profile,
+            address:editedDetails.address,
+            hobbies:editedDetails.hobbies,
+
+
+          }}
+          onClose={handleCloseModal}
+        />
+      )}
     </Main>
   );
 };
@@ -213,7 +287,7 @@ export const StudentDetail1 = () => {
 const StudentDetail2 = () => {
   const Main = styled.section`
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
-  
+
     /*====START==========MAIN =========== */
     .stlist {
       display: -ms-flexbox;
@@ -231,11 +305,11 @@ const StudentDetail2 = () => {
       justify-content: center;
       padding-top: 6px;
       padding-bottom: 15px;
-    } 
-    .stlist01 {  
-       align-items: start;
-       height: auto;
-       align-items: center;
+    }
+    .stlist01 {
+      align-items: start;
+      height: auto;
+      align-items: center;
     }
 
     /*  DROP DOWN BUTTON    START  */
@@ -331,52 +405,55 @@ const StudentDetail2 = () => {
     }
     .containerbox {
       display: block;
-      width: 90%;    
-       align-items: center;
+      width: 90%;
+      align-items: center;
       justify-content: center;
       color: #3f3e3e;
       background: white;
       font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
 
-      table th{
-        background-color: ${({ theme }) => theme.colors.backgroundBlue};  
-        color: rgb(247, 247, 247); 
+      table th {
+        background-color: ${({ theme }) => theme.colors.backgroundBlue};
+        color: rgb(247, 247, 247);
         border-right: 1px solid white;
-        padding:"0px";
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      }   
+        padding: "0px";
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
       }
-      @media (max-width: ${({ theme }) => theme.media.mobile}) {
-         .containerbox{
-          font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
-          width:100%;  
-
-         }
-      } 
+    }
+    @media (max-width: ${({ theme }) => theme.media.mobile}) {
+      .containerbox {
+        font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
+        width: 100%;
+      }
+    }
   `;
-  
 
   const [selectedClass, setSelectedClass] = useState("STD ");
   const handleSelect = (sd) => {
     setSelectedClass(sd);
   };
   const [classData, setClassData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    if (studentListData && studentListData.data && studentListData.data[selectedClass]) {
+    if (
+      studentListData &&
+      studentListData.data &&
+      studentListData.data[selectedClass]
+    ) {
       setClassData(studentListData.data[selectedClass]);
     } else {
-      console.error('Class data not found');
+      console.error("Class data not found");
     }
   }, [selectedClass]);
 
-  const filteredClassData = classData.filter(student =>
-    student.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    student.id.toString().includes(searchQuery)
+  const filteredClassData = classData.filter(
+    (student) =>
+      student.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      student.id.toString().includes(searchQuery)
   );
 
-  
   console.log(classData);
 
   return (
@@ -391,7 +468,7 @@ const StudentDetail2 = () => {
                   title={selectedClass}
                   id="dropdown-menu-align-right"
                   onSelect={handleSelect}
-                 >
+                >
                   <div className="dropmenu ">
                     <Dropdown.Item className="cln" eventKey="STD 1">
                       STD 1
@@ -428,23 +505,23 @@ const StudentDetail2 = () => {
               </div>
               <div className="search">
                 <span> Search Students </span>
-                 <input className="searchterm"
-                 placeholder="Enter  name "
-                 type="text" 
-                 value={searchQuery}
-                 onChange={(e) => setSearchQuery(e.target.value)}
-
-                 ></input>
+                <input
+                  className="searchterm"
+                  placeholder="Enter  name "
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                ></input>
               </div>
               <div className="totaldtudent">
                 <span> Total Students</span>
-                <span  id="tnum" className="tstudent pt-0 pb-0">
+                <span id="tnum" className="tstudent pt-0 pb-0">
                   {filteredClassData.length}
                 </span>
               </div>
             </div>
             <div className="container-fluid d-flex justify-content-center m-0 ">
-              <div className="containerbox m-0 "> 
+              <div className="containerbox m-0 ">
                 <table className="table">
                   <thead>
                     <tr>
@@ -455,7 +532,7 @@ const StudentDetail2 = () => {
                       <th>Status</th>
                       <th>Edit Details</th>
                     </tr>
-                  </thead> 
+                  </thead>
                   <tbody>
                     {filteredClassData.map((student) => (
                       <tr key={student.id}>
@@ -473,7 +550,6 @@ const StudentDetail2 = () => {
                 </table>
               </div>
             </div>
- 
           </div>
         </div>
       </section>

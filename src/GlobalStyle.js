@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
 a {
   text-decoration: none;
 };
+.PDli ul  li{
+  font-size: 1.5rem;
+  padding:5px;
+}
 @media (max-width:${({ theme }) => theme.media.tab}) {
       .container{
         padding: 0 3.2rem;
