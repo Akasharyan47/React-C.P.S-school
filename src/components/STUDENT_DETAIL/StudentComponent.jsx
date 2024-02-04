@@ -35,7 +35,7 @@ import studentListData from '../../Data/studentList.json';
     width: 100%;
     display: flex;
     height: 80px;
-    align-items: center;
+    align-items: center; 
 
     li {
       margin-right: 25px;
@@ -61,6 +61,7 @@ import studentListData from '../../Data/studentList.json';
     height: 40vh;
     justify-content: center;
     align-items: center;
+   
 
     ul {
       width: max-content;
@@ -113,7 +114,7 @@ export const StudentDetail1 = () => {
         <div id="show1" className={`headmaster pt-3 ${isEditing ? 'editing' : ''}`}>
           <div className="headmasterbox">
             <ul>
-              <li>
+              <li> 
                 <span className="text-light">Profile Detail</span>
               </li>
               {isEditing ? (
@@ -134,51 +135,57 @@ export const StudentDetail1 = () => {
           <div className="headmasterdetail bg-light">
             {isEditing ? (
               /* Editable section */
-              <ul>
-                <li>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    value={editedDetails.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                  />
-                </li>
-                <li>
-                  <input
-                    type="text"
-                    placeholder="Designation"
-                    value={editedDetails.designation}
-                    onChange={(e) => handleInputChange('designation', e.target.value)}
-                  />
-                </li>
-                <li>
-                  <input
-                    type="text"
-                    placeholder="Date of Birth"
-                    value={editedDetails.dob}
-                    onChange={(e) => handleInputChange('dob', e.target.value)}
-                  />
-                </li>
-                <li>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={editedDetails.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                  />
-                </li>
-                <li>
-                  <input
-                    type="tel"
-                    placeholder="Contact Number"
-                    value={editedDetails.contactNumber}
-                    onChange={(e) => handleInputChange('contactNumber', e.target.value)}
-                  />
-                </li>
-              </ul>
+              <ul className=" w-50 list-unstyled">
+              <li className="mb-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Name"
+                  value={editedDetails.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                />
+              </li>
+              <li className="mb-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Designation"
+                  value={editedDetails.designation}
+                  onChange={(e) => handleInputChange('designation', e.target.value)}
+                />
+              </li>
+              <li className="mb-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Date of Birth"
+                  value={editedDetails.dob}
+                  onChange={(e) => handleInputChange('dob', e.target.value)}
+                />
+              </li>
+              <li className="mb-2">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Email"
+                  value={editedDetails.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                />
+              </li>
+              <li className="mb-2">
+                <input
+                  type="tel"
+                  className="form-control"
+                  placeholder="Contact Number"
+                  value={editedDetails.contactNumber}
+                  onChange={(e) => handleInputChange('contactNumber', e.target.value)}
+                />
+              </li>
+            </ul>
+            
             ) : (
               /* Display section */
-              <ul>
+              <ul className="">
                 <li>
                   <span className="hdname">Name </span>: {editedDetails.name}
                 </li>
