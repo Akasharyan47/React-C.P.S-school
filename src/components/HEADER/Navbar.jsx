@@ -30,7 +30,7 @@ const Navbar = () => {
   const Nav = styled.nav`
     .navbar-list {
       display: flex;
-      gap: 2.5rem;
+      gap: 2.2rem;
       li {
         list-style: none;
 
@@ -245,36 +245,35 @@ const Navbar = () => {
 
           {username && username.login ? (
             /* If user is logged in, show a welcome message */
-            <li
-              className="rounded"
-              style={{ backgroundColor: "#333f50", padding: "0 20px" }}
+            <li 
             >
-              <NavLink onClick={handleNavLinkClick} className="navbar-link color-white text-light">
+              <NavLink onClick={handleNavLinkClick} className="navbar-link text-light rounded " style={{ backgroundColor: "#333f50", padding: "3px 15px" }}>
                 {username.username}
-              </NavLink>
+           
               {showDropdown && (
-                <div className="dropdown position-absolute mt-4 bg-danger"> j
+                <div className="dropdown ">
                   <button
-                    className="bg-success "
+                    className="bg-success rounded "
                     onClick={handleLogout}
-                    style={{ backgroundColor: "#333f50", padding: "5px 20px", border:"none" }}
-                  >
+                    style={{ maxWidth:"100px",  padding: "4px 15px", border:"none", position:"absolute", top:"20px", left:"-15px", fontSize:"1.3rem", fontWeight:"bold"}}
+                   >
                     Logout
                   </button>
                    
                 </div>
-              )}
+              )}   </NavLink>
             </li> 
             
           ) : (
             /* If user is not logged in, show a Login link */
             <li
               className="rounded"
-              style={{ backgroundColor: "#333f50", padding: "0 20px" }}
+               
             >
               <NavLink
-                className="navbar-link color-white text-light"
+                className=" rounded navbar-link color-white text-light"
                 to="/Login"
+                style={{ backgroundColor: "#333f50", padding: "3px 20px" }}
               >
                 Login
               </NavLink>
