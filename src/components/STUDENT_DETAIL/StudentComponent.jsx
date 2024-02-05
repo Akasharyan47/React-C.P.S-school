@@ -10,8 +10,7 @@ const Main = styled.section`
   /* ====   START   HEADMASTER DETAIL  === */
   @import url("https://fonts.googleapis.com/css?family=Raleway:400,100,200,300");
   padding: 0;
-  margin: 0;
-  list-style: none;
+  margin: 0; 
   text-decoration: none;
   box-sizing: border-box;
   letter-spacing: 0.6px;
@@ -67,9 +66,9 @@ const Main = styled.section`
       gap: 80px;
 
       li {
-        color: #3f3e3e;
-        font-weight: bold;
-        letter-spacing: 1px;
+        color: #2b2a2a; 
+        padding-top: 2px;
+        font-family: "Work Sans", sans-serif;
         font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
       }
     }

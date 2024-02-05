@@ -11,12 +11,13 @@ const Login = () => {
     localStorage.getItem(localStorage.getItem("authenticated") || false)
   );
   const users = [{ username: "Akash", password: "akash47" }];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const account = users.find((user) => user.username === username);
     if (account && account.password === password) {
       setauthenticated(true);
-        localStorage.setItem("CPS_user", JSON.stringify({ login: true }));
+        localStorage.setItem("CPS_user", JSON.stringify({ login: true, username:"Akash" }));
           const timer = setTimeout(() => {
          navigate('/StudentDetails')
         }, 2000);
