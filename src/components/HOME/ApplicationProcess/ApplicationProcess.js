@@ -126,10 +126,7 @@ const ApplicationProcess = () => {
         <div className="container-fluid">
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
-
-                <h2 className="heading  justify-content-center d-flex  ">Application Process</h2>
-
+              <div className="col-md-12"> 
                 <StepList className="appstep d-flex justify-content-around">
                   {[faSchool, faPersonChalkboard, faBasketball, faLightbulb].map((icon, index) => (
                     <StepItem  key={index} isFirstChild={index === 0}>
