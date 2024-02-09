@@ -20,52 +20,50 @@ const ApplicationProcess = () => {
     text-align: left;
     background-color: rgb(255, 255, 255);
   `;
-
+ 
   const PaddingContainer = styled.div`
     padding: 50px 0;
   `;
-
-  const ContentContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-  `;
-
+ 
   const StepList = styled.ul`
-    width: 70%;
-    display: flex;
+    width: 100%;
+    display: flex; 
     justify-content: center;
     margin: 60px auto 10px;
-    padding: 0;
-
-    @media screen and (max-width: 767px) {
-      flex-wrap: wrap;
+    padding: 0; 
+     @media screen and (max-width: 767px) {
+      flex-wrap: wrap;  
+      display:flex;
+      
     }
+    @media screen and (min-width: 1200px) {
+      width: 80%;
+      
+    }
+
   `;
 
   const StepItem = styled.li`
     position: relative;
     counter-increment: list;
     display: flex;
-    width: auto;
-    padding: 0;
-    margin: 0 40px;
+    flex-direction: column; /* Change to column for smaller screens */
+    align-items: center; /* Center items vertically */
+    padding: 0; 
 
     &:first-child:before {
       @media screen and (max-width: 767px) {
-        display: block;
+        display: block; 
       }
     }
 
     &:before {
       @media screen and (max-width: 767px) {
         transform: rotate(90deg);
-        top: initial;
+        top: initial; 
         left: 36%;
         z-index: 2;
-        bottom: -51px;
+        bottom: -51px; 
         display: ${props => (props.isFirstChild ? "block" : "none")};
       }
     }
@@ -81,6 +79,7 @@ const ApplicationProcess = () => {
       width: 120px;
       height: 120px;
       margin-bottom: 30px;
+     
     }
   `;
 
@@ -128,11 +127,13 @@ const ApplicationProcess = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <h2 className="heading">Application Process</h2>
-                <StepList className="appstep">
+
+                <h2 className="heading  justify-content-center d-flex  ">Application Process</h2>
+
+                <StepList className="appstep d-flex justify-content-around">
                   {[faSchool, faPersonChalkboard, faBasketball, faLightbulb].map((icon, index) => (
-                    <StepItem key={index} isFirstChild={index === 0}>
-                      <StepWrapper className="mainWrapper">
+                    <StepItem  key={index} isFirstChild={index === 0}>
+                      <StepWrapper className="mainWrapper ">
                         <DataSection className="datasection">
                           <CenterData className="centerdata">
                             <StepIcon icon={icon} />
@@ -140,7 +141,7 @@ const ApplicationProcess = () => {
                           </CenterData>
                         </DataSection>
                       </StepWrapper>
-                    </StepItem>
+                    </StepItem> 
                   ))}
                 </StepList>
               </div>

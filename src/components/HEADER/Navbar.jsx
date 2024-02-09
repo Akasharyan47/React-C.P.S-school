@@ -248,7 +248,7 @@ const Navbar = () => {
             <li 
             >
               <NavLink onClick={handleNavLinkClick} className="navbar-link text-light rounded " style={{ backgroundColor: "#333f50", padding: "3px 15px" }}>
-                {username.username}
+              {username.username}
            
               {showDropdown && (
                 <div className="dropdown ">
@@ -261,7 +261,8 @@ const Navbar = () => {
                   </button>
                    
                 </div>
-              )}   </NavLink>
+              )}
+              </NavLink>
             </li> 
             
           ) : (
@@ -273,7 +274,7 @@ const Navbar = () => {
               <NavLink
                 className=" rounded navbar-link color-white text-light"
                 to="/Login"
-                style={{ backgroundColor: "#333f50", padding: "3px 20px" }}
+                style={{ backgroundColor: "#333f50", padding: "3px 15px" }}
               >
                 Login
               </NavLink>
