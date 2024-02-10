@@ -29,6 +29,83 @@ library.add(
   faCaretDown
 );
 
+const announcements = [
+  {
+    title: "Documents for empanelment of vendor for A Class contractor Registration Form for Selected Candidates  ",
+    date: "New",
+  },
+  {
+    title: "PhD  Registration Form for Selected CandidatesRegistration Form for Selected CandidatesRegistration Form for Selected CandidatesRegistration ",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness",
+    date: "New",
+  },
+  {
+    title: "Documents for empanelment of vendor for A Class contractor Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "PhD Registration Form for Selected Candidates Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness",
+    date: "New",
+  },
+  {
+    title: "Documents for empanelment of vendor for A Class contractor Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "PhD Registration Form for Selected Candidates Registration Form for Selected Candidates Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "Documents for empanelment of vendor for A Class contractor Registration Form for Selected Candidates Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "PhD Registration Form for Selected Candidates Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness",
+    date: "New",
+  },
+  {
+    title: "Documents for empanelment of vendor for A Class contractor Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "PhD Registration Form for Selected Candidates Registration Form for Selected CandidatesRegistration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "Documents for empanelment of vendor for A Class contractor",
+    date: "New",
+  },
+  {
+    title: "PhD Registration Form for Selected Candidates Registration Form for Selected Candidates",
+    date: "New",
+  },
+  {
+    title: "31 Mar 2022 Institutional Distinctiveness",
+    date: "New",
+  },
+  
+  // Add more announcement objects as needed
+];
+
 const bannerImages = [
   {
     url: require("../../IMAGE/cps.jpg"),
@@ -131,175 +208,41 @@ const Home = () => {
       <ApplicationProcess />
 
       <section>
-        <div class="main3 ">
-          <div class="announcements ">
-            <div class="announcement11">
-              <div class="announcements1" style={{ justifyContent: "left" }}>
-                <h4 class="ansment1">Announcements</h4>
+      <div className="main3">
+        <div className="announcements">
+          <div className="announcement11">
+            <div className="announcements1">
+              <h4 className="ansment1">Announcements</h4>
+            </div>
+            <div className="announcements2">
+              <FontAwesomeIcon
+                className="pt-2 pb-0 bg-pink"
+                icon={faCaretUp}
+                style={{ fontSize: "2.5rem", color: "white" }}
+              />
+              <div className="latest-news-container">
+                <ul className="latest-news-ul">
+                  {announcements.map((announcement, index) => (
+                    <li key={index}>
+                      <h4>
+                        {announcement.title}
+                        <span className="badge badge-secondary text-danger bg-white p-1">
+                          {announcement.date}
+                        </span>
+                      </h4>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div class="announcements2 ">
-                <FontAwesomeIcon
-                  className="pt-2 pb-0 bg-pink"
-                  icon="fa-solid fa-caret-up "
-                  style={{ fontSize: "2.5rem", color: "white" }}
-                />
-                <div className="latest-news text-white">
-                  <marquee className="marquee-container" direction="up">
-                    <ul className="latest-news-ul ">
-                      <h4>
-                        Documents for empanellment of vendor for A Class
-                        contyractor
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        PhD Registration Form for Selected Candidates
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        31 mar 2022 Instituitional Distinctiveness{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Documents for empanellment of vendor for A Class
-                        contyractor
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        16 feb 2022 Ph D merit list Part 02_16 feb 2022
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        17 Oct 2022 Consolidate academic Calender{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Participation in Climate Correction Day (CCD) Challenge
-                        for Mission LiFE{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Documents for empanellment of vendor for A Class
-                        contyractor
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        School of Architecture College Level counselling 2022-23{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        Participation in Climate Correction Day (CCD) Challenge
-                        for Mission LiFE{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        17 Oct 2022 Consolidate academic Calender{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Participation in Climate Correction Day (CCD) Challenge
-                        for Mission LiFE{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Documents for empanellment of vendor for A Class
-                        contyractor
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>{" "}
-                      </h4>
-                      <h4>
-                        {" "}
-                        17 Oct 2022 Consolidate academic Calender{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Participation in Climate Correction Day (CCD) Challenge
-                        for Mission LiFE{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        Documents for empanellment of vendor for A Class
-                        contyractor
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        School of Architecture College Level counselling 2022-23{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                      <h4>
-                        {" "}
-                        Participation in Climate Correction Day (CCD) Challenge
-                        for Mission LiFE{" "}
-                        <span className="badge badge-secondary text-danger bg-white p-1">
-                          New
-                        </span>
-                      </h4>
-                    </ul>
-                  </marquee>
-                </div>
-                {/* <ul id="announcementlist" className="m-0">
-                  {notificationDetail.map((cremt) => {
-                    const { notification, link } = cremt;
-                    return (
-                      <li> 
-                        {notification} ,{link}
-                      </li>
-                    );
-                  })}
-                </ul> */}
-                <FontAwesomeIcon
-                  icon="fa-solid fa-caret-down "
-                  style={{ fontSize: "2.5rem", color: "white" }}
-                />
-              </div>
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                style={{ fontSize: "2.5rem", color: "white" }}
+              />
             </div>
           </div>
-          {/* <table class="table table-bordered">
-              <tbody>
-              </tbody>
-            </table> */}
         </div>
-      </section>
+      </div>
+    </section>
       <Fragment>
         <FooterAbout />
         <FooterContactUs />
@@ -438,12 +381,37 @@ const Main = styled.section`
     }
     .main2 .wlcm2 span {
       font-size: 24px;
+      font-weight: bolder;
     }
   }
 
   /*    APPLICATION PROCESS   CSS DESIGN*/
 
   /* MAIN3  DESIGN STYLE  */
+  .latest-news-container {
+  overflow: hidden;
+  height: 150px; /* Adjust height as needed */
+}
+
+.latest-news-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: scroll-up 15s linear infinite; /* Adjust animation duration as needed */
+}
+
+.latest-news-ul li {
+  margin-bottom: 0px; /* Adjust spacing between items */
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
 
   .main3 {
     background-color: ${({ theme }) => theme.colors.backgroundBlue};
@@ -480,6 +448,7 @@ const Main = styled.section`
   }
 
   .announcements .announcements2 {
+  
     width: 85%;
     margin-left: 0px;
     margin-right: 0px;
@@ -497,13 +466,16 @@ const Main = styled.section`
     display: block;
     width: 100%;
     height: 150px;
-    min-width: 250px;
+    min-width: 250px; 
+    margin-left: 30px;
   }
 
   .announcements2 ul li {
     cursor: pointer;
     padding-bottom: 10px;
     color: white;
+    font-family: serif;
+    letter-spacing: 2px;
     width: 100%;
     font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
   }
