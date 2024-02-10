@@ -11,7 +11,7 @@ import { FooterBottom } from '../FOOTER/Footer.jsx';
       <MainAdmission>
         <div className="admprocess">
           <div className="admprocess1">
-            <span> ADMISSION PROCESS </span>
+            <span> ADMISSION   </span>
           </div>
           <div className="admprocess2">
             <span className="adma text-decoration-none">
