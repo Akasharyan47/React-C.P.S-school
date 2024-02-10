@@ -362,66 +362,56 @@ const Main = styled.section`
     display: block;
     flex: auto;
     width: 100%;
+    height:320px; 
     text-align: center;
     background-color: ${({ theme }) => theme.colors.backgrountColorGray};
   }
-  .main2 .wlcm1 {
-    margin-top: 3px;
+  .main2 .wlcm1 { 
+    padding-top: 20px;
     display: inline-flex;
     font-size: 28px;
     font-weight: bold;
     font-style: normal;
     color: ${({ theme }) => theme.colors.headerTextColor};
   }
-  .main2 .wlcm2,
-  .wlcm4 {
-    padding-top: 9px;
-    display: block;
+  .main2 .wlcm2 
+    {  
     font-size: 38px;
-    font-weight: 800;
+    font-weight: 800; 
     color: ${({ theme }) => theme.colors.backgroundBlue};
   }
   .main2 .wlcm4 {
-    padding-bottom: 15px;
+    padding-bottom: 20px;
+    padding-top:10px;
   }
   .main2 .wlcm3 span {
+    padding-top:15px; 
     display: inline-block;
     color: ${({ theme }) => theme.colors.headerTextColor};
     padding-bottom: 15px;
     font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
-  .main2 .wlcm1 span:after {
-    background-color: ${({ theme }) => theme.colors.backgroundYellow};
-    text-align: center;
-    position: relative;
-    top: -8px;
-    margin-left: 10px;
-    display: inline-flex;
-    content: "";
-    box-sizing: border-box;
-    border: 0.4rem solid ${({ theme }) => theme.colors.backgroundYellow};
-    width: 1.7em;
-    border-radius: 2.5rem;
-    transform: rotate(180deg);
-  }
-  .main2 .wlcm1 span:before {
-    margin-right: 10px;
-    text-align: center;
-    top: -8px;
-    position: relative;
-    display: inline-flex;
-    background-color: ${({ theme }) => theme.colors.backgroundYellow};
-    content: "";
-    box-sizing: border-box;
-    border: 0.4rem solid ${({ theme }) => theme.colors.backgroundYellow};
-    width: 1.7em;
-    border-radius: 2.5rem;
-    transform: rotate(180deg);
-  }
-
+  .wlcm1 span::after,
+.wlcm1 span::before {
+  background-color: ${({ theme }) => theme.colors.backgroundYellow};
+  text-align: center;
+  position: relative;
+  top: -8px;
+  margin-left: 10px;
+  display: inline-flex;
+  content: "";
+  box-sizing: border-box;
+  border: 0.4rem solid ${({ theme }) => theme.colors.backgroundYellow};
+  width: 1.7em;
+  border-radius: 2.5rem;
+  transform: rotate(180deg);
+}
+.wlcm1 span::before {
+  margin-right: 10px;
+}
   .main2 .wlcm4 span:before {
     background-color: ${({ theme }) => theme.colors.backgroundBlue};
     position: relative;
@@ -430,7 +420,7 @@ const Main = styled.section`
     border: 2.6px solid ${({ theme }) => theme.colors.backgroundBlue};
     width: 24px;
     border-radius: 2.5em;
-    margin: 10px;
+     margin: 0;
     transform: rotate(90deg);
   }
   .wlcm2 p {
@@ -438,6 +428,8 @@ const Main = styled.section`
     color: ${({ theme }) => theme.colors.headerTextColor};
     font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
     font-weight: bold;
+    height:30px; 
+    padding-top: 5px;
   }
 
   @media screen and (max-width: 500px) {
@@ -445,7 +437,7 @@ const Main = styled.section`
       font-size: 25px;
     }
     .main2 .wlcm2 span {
-      font-size: 26px;
+      font-size: 24px;
     }
   }
 

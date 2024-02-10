@@ -178,11 +178,13 @@ export const FooterBottom = () => {
     margin-top:10px; 
     width: 100%;
     overflow: hidden;  
+    padding-top: 20px;
   }
   .footercontact .ftcontact3 {
     position:fixed; 
     display: inline-block;
     width: 100%; 
+    
     bottom:0;
     background-color:${({ theme }) => theme.colors.backgroundYellow};
   } 
@@ -196,8 +198,8 @@ export const FooterBottom = () => {
   `;
   return (
     <Wrapper>
-      <div className="footercontact">
-        <div className="ftcontact3" >
+      <div className="footercontact   ">
+        <div className="ftcontact3 " >
           <span>© Copyright 2022-2023 / Central public school</span>
         </div>
       </div>

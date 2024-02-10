@@ -72,7 +72,7 @@ const ApplicationProcess = () => {
   const StepWrapper = styled.div`
     width: 130px;
     height: 130px;
-    border: 3px solid ${({ theme }) => theme.colors.backgroundBlue};
+      box-shadow: #23628F 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;;
     margin-bottom: 30px;
 
     @media screen and (max-width: 767px) {
@@ -88,12 +88,13 @@ const ApplicationProcess = () => {
     height: 120px;
     background: ${({ theme }) => theme.colors.backgroundBlue};
     top: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     position: absolute;
     left: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: center;  
 
     @media screen and (max-width: 767px) {
       width: 110px;
