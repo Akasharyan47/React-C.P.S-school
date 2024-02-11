@@ -35,7 +35,7 @@ const ViewAllModal = ({ isOpen, onClose, images }) => {
         },
       }}
     >
-      <CloseButton onClick={onClose} className="btn btn-danger">Close</CloseButton>
+      <CloseButton onClick={onClose} className="btn btn-danger  ">Close</CloseButton>
       <MasonryContainer>
         {images.map((image, index) => (
           <MasonryItem key={index} className="column">
@@ -70,17 +70,30 @@ const CloseButton = styled.button`
   right: 10px;
   font-size: 16px;
   cursor: pointer;
+  
 `;
 
 const MasonryContainer = styled.div`
+display: -ms-flexbox; /* IE10 */
   display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
-  gap: 8px;
+  height: auto;
+  gap: 8px; 
 `;
 
 const MasonryItem = styled.div`
   width: calc(25% - 8px); /* Four columns with gap */
+
+  @media screen and (max-width: 768px) {
+    width: calc(34% - 8px); /* Two columns with gap */
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: calc(20% - 8px); /* Single column with gap */
+  }
 `;
+
 
 const ImageModal = styled(Modal)`
   position: absolute;
