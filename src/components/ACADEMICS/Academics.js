@@ -163,7 +163,8 @@ const Academic = styled.div`
     align-items: center;
     position: relative;
     gap: 4rem;
-    box-shadow: 
+    background-color: #006590;
+     box-shadow: 
   rgba(0, 0, 0, 0.136) 0px -23px 25px 0px inset, 
   rgba(0, 0, 0, 0.120) 0px -36px 30px 0px inset, 
   rgba(0, 0, 0, 0.088) 0px -79px 40px 0px inset, 
@@ -206,6 +207,7 @@ const Academic = styled.div`
     }
   }
 }
+
 `;
 
 export default Academics;

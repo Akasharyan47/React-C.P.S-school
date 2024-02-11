@@ -1,72 +1,99 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';  
-const ViewAll = () => {
+import React, { useState } from "react";
+import Modal from "react-modal";
+import styled from "styled-components";
 
-  const [data, setData] = useState([]); 
-  const getData = () => {
-    fetch('GallerieIMGdata.json', {
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      }
-    }).then((response) => {
-      return response.json()
-    }).then((myjson) => {
-      setData(myjson); 
-    })
-    }
-     useEffect(() => {
-     getData(); 
-     }, []) 
+Modal.setAppElement("#root");
+
+const ViewAllModal = ({ isOpen, onClose, images }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (index) => {
+    setSelectedImage(index);
+  };
+
   return (
-    <Main> 
-    <div className='container bg-info   vx'> 
-      <div className='photo-gallery d-flex row vy '>
-        {
-          data && data.length > 0 && data.map((idd, index) => {
-           return ( 
-            <div className=' mp mt-1'>  
-             <div className='photo '>  
-                  <img className="img-fluid" alt="image" src={idd.image}    ></img> 
-             </div> 
-          </div>
-          )
-        })}  
-      </div> 
-    </div>
-    </Main>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      style={{
+        content: {
+          top: "50%",
+          left: "50%",
+          right: "auto",
+          bottom: "auto",
+          marginRight: "-50%",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "80%",
+          maxHeight: "80%",
+          overflow: "auto",
+          padding: "20px",
+          border: "none",
+          borderRadius: "10px",
+        },
+        overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+        },
+      }}
+    >
+      <CloseButton onClick={onClose} className="btn btn-danger">Close</CloseButton>
+      <MasonryContainer>
+        {images.map((image, index) => (
+          <MasonryItem key={index} className="column">
+            <img
+              src={image}
+              alt={`Image ${index + 1}`}
+              className="img-fluid rounded"
+              onClick={() => handleImageClick(index)}
+            />
+          </MasonryItem>
+        ))}
+      </MasonryContainer>
+      <ImageModal
+        isOpen={selectedImage !== null}
+        onRequestClose={() => setSelectedImage(null)}
+      >
+        {selectedImage !== null && (
+          <img
+            src={images[selectedImage]}
+            alt={`Image ${selectedImage + 1}`}
+            className="img-fluid"
+          />
+        )}
+      </ImageModal>
+    </Modal>
   );
-}
+};
 
-const Main = styled.div`
-  
-.vy{ 
- left:0;
- right:0;  
- position: absolute; 
-} 
- 
- .mp{
-   object-position: center;
-   width:200px;
-    height:min-content;
-   display: flex;
-   margin: auto;
-   flex-direction: column;
-   background-color:${({ theme }) => theme.colors.backgroundYellow}; 
-  .photo{
-   margin-top: 5px 2px;
-   background-color:${({ theme }) => theme.colors.backgroundBlue}; 
-  }
- }
- @media (max-width: ${({ theme }) => theme.media.mobile}) {
-   .mp{
-   width:100px; 
-   margin: auto;
-   flex-direction: column;
-   background-color:${({ theme }) => theme.colors.backgroundYellow}; 
-
- }
-} 
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  cursor: pointer;
 `;
-export default ViewAll;
+
+const MasonryContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+const MasonryItem = styled.div`
+  width: calc(25% - 8px); /* Four columns with gap */
+`;
+
+const ImageModal = styled(Modal)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+`;
+
+export default ViewAllModal;

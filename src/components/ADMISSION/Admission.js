@@ -2,16 +2,13 @@ import React from 'react';
 import styled from "styled-components";
 import { FooterBottom } from '../FOOTER/Footer.jsx';
 
-
-
  const Admission = () => {
-
   return (
     <>
       <MainAdmission>
         <div className="admprocess">
           <div className="admprocess1">
-            <span> ADMISSION   </span>
+            <span> ADMISSION PROCESS </span>
           </div>
           <div className="admprocess2">
             <span className="adma text-decoration-none">
@@ -23,10 +20,10 @@ import { FooterBottom } from '../FOOTER/Footer.jsx';
             </span>
           </div>
 
-          <div className="containeradm">
-            <div className="row">
-              <div className="col-md-12">
-                <article className="jsx-2808093879 stepWraper">
+          <div className="containeradm ">
+            <div className="row ">
+              <div className="col-md-12 ">
+                <article className="jsx-2808093879 stepWraper ">
                   <ul className="jsx-2808093879">
 
                     <li className="jsx-2808093879 column" style={{ width: "200px" }} >
