@@ -6,7 +6,7 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
+import ApplicationProcess from "./ApplicationProcess/ApplicationProcess"; 
 import {
   FooterAbout,
   FooterContactUs,
@@ -108,23 +108,19 @@ const announcements = [
 
 const bannerImages = [
   {
-    url: require("../../IMAGE/cps.jpg"),
+    url: require("../../IMAGE/bannerImage/pexels-engin-akyurt-2946979.jpg"),
+  }, 
+  {
+    url: require("../../IMAGE/bannerImage/pexels-max-fischer-5212345.jpg"),
   },
   {
-    url: require("../../IMAGE/cps.jpg"),
+    url: require("../../IMAGE/bannerImage/pexels-pixabay-256417.jpg"),
   },
   {
-    url: require("../../IMAGE/cps.jpg"),
+    url: require("../../IMAGE/bannerImage/pexels-magda-ehlers-1337382.jpg"),
   },
-  {
-    url: require("../../IMAGE/cps.jpg"),
-  },
-  {
-    url: require("../../IMAGE/cps.jpg"),
-  },
-  {
-    url: require("../../IMAGE/cps.jpg"),
-  },
+ 
+   
 ];
 const Home = () => {
   // const { notificationDetail, isloading,  } = useGlobalContext();
@@ -145,7 +141,7 @@ const Home = () => {
         })()}
       </section> */}
 
-      <section>
+      {/* <section>
         <div
           className=" d-block"
           style={{
@@ -169,10 +165,24 @@ const Home = () => {
                 </div>
               );
             })}
-            ;
+            
           </Slide> 
         </div>
-      </section>
+      </section> */}
+  <SlideshowContainer>
+      <Slide easing="ease">
+        {bannerImages.map((bannerImage, index) => (
+          <div className="each-slide " key={index}>
+            <Image className="img-fluid" src={bannerImage.url} alt={`Slide ${index}`} />
+          </div>
+        ))}
+      </Slide>
+      <IndicatorContainer>
+        {bannerImages.map((_, index) => (
+          <div key={index} className="indicator"></div>
+        ))}
+      </IndicatorContainer>
+    </SlideshowContainer>
 
       <section>
         <div className="main2">
@@ -251,7 +261,50 @@ const Home = () => {
     </Main>
   );
 };
+const SlideshowContainer = styled.div`
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  border: 6px solid rgb(0, 71, 107);
 
+
+  @media (min-width: 768px) {
+    height: 320px; /* For laptops and larger screens */
+  }
+
+  @media (max-width: 767px) {
+    height: 190px; /* For phones and smaller screens */
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+`;
+
+const IndicatorContainer = styled.div`
+width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+background-color: rgb(0, 71, 107);
+  .indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer; 
+  }
+`;
 const Main = styled.section`
   .each-slide-effect > div {
     display: flex;
@@ -266,13 +319,7 @@ const Main = styled.section`
     display: none;
   }
 
-  .bhn {
-    img {
-      width: 100%;
-      max-height: 270px;
-      min-height: 150px;
-    }
-  }
+  
 
   .main1 {
     background-color: #033d5a;
