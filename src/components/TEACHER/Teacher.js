@@ -46,8 +46,7 @@ const Teacher = () => {
 
                     <div className="b row">
                       <span>
-                        <p> Id:</p>
-                        {id}
+                        
                       </span>
                       <span>
                         <p>Name:</p>
