@@ -243,8 +243,7 @@ const Navbar = () => {
           </NavLink>
         </li> */}
 
-          {username && username.login ? (
-            /* If user is logged in, show a welcome message */
+          {username && username.login ? ( 
             <li 
             >
               <NavLink onClick={handleNavLinkClick} className="navbar-link text-light rounded " style={{ backgroundColor: "#333f50", padding: "3px 15px" }}>

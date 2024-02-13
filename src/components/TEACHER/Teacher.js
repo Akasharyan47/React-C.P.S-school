@@ -5,7 +5,7 @@ import { FooterBottom } from "../FOOTER/Footer.jsx";
 
 const Teacher = () => {  
  const { teachersDetail, isloading } = useGlobalContext();
-    console.log(teachersDetail)
+ 
   return (
     <> 
       <Main>
@@ -46,7 +46,8 @@ const Teacher = () => {
 
                     <div className="b row">
                       <span>
-                        
+                        {/* <p> Id:</p>
+                        {id} */}
                       </span>
                       <span>
                         <p>Name:</p>
