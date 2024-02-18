@@ -75,6 +75,15 @@ a {
   transform: translateX(0);
 }
 
+.closebtn { 
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.closebtn.show {
+  transform: translateX(30%);
+}
+
 .Dashboardcontent {
   flex: 1; 
   /* border: 1px solid gray; */
@@ -99,7 +108,7 @@ a {
   bottom:0;
   overflow-x: hidden;
   overflow-y: scroll;
-  position: absolute;
+  position: fixed;
   z-index: 9;
   @media (max-width:${({ theme }) => theme.media.mobile}) {
     top:70px; 

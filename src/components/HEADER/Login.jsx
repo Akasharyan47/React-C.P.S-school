@@ -1,9 +1,7 @@
 import React, { useState } from "react"; 
-import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
+import styled from "styled-components"; 
 const Login = ({ onSuccess }) => {
-
-  const navigate = useNavigate()
+ 
 
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
@@ -18,8 +16,7 @@ const Login = ({ onSuccess }) => {
     const account = users.find((user) => user.username === username); 
       if (account && account.password === password) {
         setauthenticated(true);
-        onSuccess();
-        // Set authentication status in localStorage
+        onSuccess(); 
         localStorage.setItem("authenticated", true);
       } else {
          alert("Invalid username or password");
@@ -108,11 +105,17 @@ const Main = styled.section`
   .bbb {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 90vh;
+  align-items: center; 
+  min-height:88vh;
   font-family: "Jost", sans-serif;
   background: linear-gradient(to top, #006599, #302b63cd, #ff9933af);
   letter-spacing: 1px;
+  @media (max-width:${({ theme }) => theme.media.mobile}) {
+  margin-top: 50px;
+  width: 100vw;
+  min-height:70vh;
+  background: transparent;
+  }
 }
 
 .main {

@@ -14,7 +14,7 @@ const StudentDetails = () => {
   const navigator = useNavigate();
 
   const getLoginInfo = () => {
-    const user_info = localStorage.getItem("CPS_user");
+    const user_info = localStorage.getItem("authenticated");
     const parsedItem = JSON.parse(user_info);
     setParsedItem(parsedItem);
   };
@@ -24,7 +24,7 @@ const StudentDetails = () => {
   }, []);
 
   const logoutBtn = () => {
-    localStorage.removeItem("CPS_user");
+    localStorage.removeItem("authenticated");
     window.opener = null;
     navigator("/");
     window.close();

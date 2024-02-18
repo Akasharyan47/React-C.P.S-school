@@ -10,9 +10,10 @@ import ManageAccount from "./ManageAccount.jsx";
 import Login from "../HEADER/Login.jsx";
 import { CgMenu, CgCloseR } from "react-icons/cg";
 const Dashboard = () => {
-  const [showSidebar, setShowSidebar] = useState(window.innerWidth >= 768); // Set initial state based on device width
-  const [selectedOption, setSelectedOption] = useState("dashboard"); // Default selected option
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [showSidebar, setShowSidebar] = useState(window.innerWidth >= 768);
+  const [selectedOption, setSelectedOption] = useState("dashboard");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setShowSidebar(window.innerWidth >= 768);
@@ -22,17 +23,13 @@ const Dashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  // Run effect only once on component mount
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
   useEffect(() => {
-    // Check if the user is authenticated from localStorage
     const authenticated = localStorage.getItem("authenticated") === "true";
     setIsLoggedIn(authenticated);
-
-    // If authenticated, set the selected option to 'profile'
     if (authenticated) {
       setSelectedOption("profile");
     }
@@ -55,15 +52,16 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row ">
-        <div className={`col-2 ${showSidebar ? "" : "d-none d-md-block"}`}>
-          <div className="sidebar-offcanvas-content ">
+      <div className={`col-lg-3 col-md-4 col-sm-12 col-xs-12 ${showSidebar ? "" : "d-none d-md-block"}`}>
+          <div className="sidebar-offcanvas-content">
             <div className="sidebar-navbar pt-1">
-              <div className="w-100 p-2 d-flex justify-content-end">
-                <CgCloseR
-                  className=" h2 close-outline mobile-nav-icon text-white"
-                  onClick={() => toggleSidebar(false)}
-                />
-              </div>
+              {/* <div className="w-100 pt-4 d-flex justify-content-end"> */}
+              <div className={`w-100 pt-4 d-flex justify-content-end ${showSidebar ? "" : "d-none"}`}>
+          <CgCloseR
+            className="h2 close-outline mobile-nav-icon text-white"
+            onClick={() => toggleSidebar(false)}
+          />
+        </div>
 
               <button
                 className={`btn-sidebar ${
@@ -133,14 +131,13 @@ const Dashboard = () => {
         </div>
 
         {/* Right Content */}
-        <div className="col-10 col-xs-11 ">
-          <button className="btn toggle-button d-md-none  ">
+        <div className="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+          <button className="btn toggle-button d-md-none">
             <CgMenu
               name="menu-outline"
-              className="mobile-nav-icon  h1"
+              className="mobile-nav-icon  h1 "
               onClick={() => toggleSidebar(true)}
             />
-            
           </button>
 
           <div className="Dashboardcontent">

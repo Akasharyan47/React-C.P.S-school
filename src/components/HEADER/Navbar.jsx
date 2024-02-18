@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { CgMenu, CgCloseR } from "react-icons/cg";
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-  // const [username, setUsername] = useState();
-  // const [showLogoutOption, setShowLogoutOption] = useState(false);
-  // const [showDropdown, setShowDropdown] = useState(false);
-
-  // useEffect(() => {
-  //   // Fetch user data from localStorage
-  //   const storedUserData = localStorage.getItem("CPS_user");
-  //   if (storedUserData) {
-  //     setUsername(JSON.parse(storedUserData));
-  //   }
-  // }, []);
-
-  // const handleLogout = () => {
-  //   // Clear user data from localStorage
-  //   localStorage.removeItem('CPS_user');
-  //   setUsername(null);
-  //   setShowDropdown(false);
-  // };
-  // const handleNavLinkClick = () => {
-  //   // Toggle the visibility of the dropdown
-  //   setShowDropdown((prevShowDropdown) => !prevShowDropdown);
-  // };
+  const [openMenu, setOpenMenu] = useState(false); 
   const Nav = styled.nav`
     .navbar-list {
       display: flex;
