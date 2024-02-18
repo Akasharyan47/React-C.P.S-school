@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/HEADER/Header.jsx";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
+import Dashboard from "./components/DASHBOARD/dashboard.jsx"
 // import { Provider } from "react-redux";
 // import { store } from "./app/store";
 
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/Login" element={<Login />} />
            <Route path="/StudentDetails" element={<StudentDetail />} /> 
           <Route path="/StudentResult" element={<StudentResult />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
 
         {/* </Provider>   */}

@@ -5,28 +5,28 @@ import { CgMenu, CgCloseR } from "react-icons/cg";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [username, setUsername] = useState();
-  const [showLogoutOption, setShowLogoutOption] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  // const [username, setUsername] = useState();
+  // const [showLogoutOption, setShowLogoutOption] = useState(false);
+  // const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
-    // Fetch user data from localStorage
-    const storedUserData = localStorage.getItem("CPS_user");
-    if (storedUserData) {
-      setUsername(JSON.parse(storedUserData));
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Fetch user data from localStorage
+  //   const storedUserData = localStorage.getItem("CPS_user");
+  //   if (storedUserData) {
+  //     setUsername(JSON.parse(storedUserData));
+  //   }
+  // }, []);
 
-  const handleLogout = () => {
-    // Clear user data from localStorage
-    localStorage.removeItem('CPS_user');
-    setUsername(null);
-    setShowDropdown(false);
-  };
-  const handleNavLinkClick = () => {
-    // Toggle the visibility of the dropdown
-    setShowDropdown((prevShowDropdown) => !prevShowDropdown);
-  };
+  // const handleLogout = () => {
+  //   // Clear user data from localStorage
+  //   localStorage.removeItem('CPS_user');
+  //   setUsername(null);
+  //   setShowDropdown(false);
+  // };
+  // const handleNavLinkClick = () => {
+  //   // Toggle the visibility of the dropdown
+  //   setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+  // };
   const Nav = styled.nav`
     .navbar-list {
       display: flex;
@@ -228,22 +228,22 @@ const Navbar = () => {
               onClick={() => setOpenMenu(false)}
               to="/StudentDetails"
             >
-              DASGBOARD
+              D 
             </NavLink>
           </li>
 
-          {/* <li className="rounded" style={{ backgroundColor: "#333f50", padding: "0 20px" }}>
+       <li className="rounded" style={{ backgroundColor: "#333f50", padding: "0 20px" }}>
           <NavLink
             className="navbar-link color-white text-light"
             onClick={() => setOpenMenu(false)}
-            to="/Login"
+            to="/Dashboard"
            >
 
-            {username ? `${username}` : 'Login'}
+DASGBOARD
           </NavLink>
-        </li> */}
+        </li>  
 
-          {username && username.login ? ( 
+          {/* {username && username.login ? ( 
             <li 
             >
               <NavLink onClick={handleNavLinkClick} className="navbar-link text-light rounded " style={{ backgroundColor: "#333f50", padding: "3px 15px" }}>
@@ -265,7 +265,7 @@ const Navbar = () => {
             </li> 
             
           ) : (
-            /* If user is not logged in, show a Login link */
+            
             <li
               className="rounded"
                
@@ -278,7 +278,7 @@ const Navbar = () => {
                 Login
               </NavLink>
             </li>
-          )}
+          )} */}
         </ul>
         {/* //nav icon */}
         <div className="mobile-navbar-btn">
