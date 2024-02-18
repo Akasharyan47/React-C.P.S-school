@@ -31,10 +31,10 @@ const Main = styled.section`
 
   .headmasterbox {
     padding-top: 20px;
-    width: 100%;
+    width: 100%; 
     display: flex;
-    height: 80px;
-    align-items: center;
+    align-items: start;
+    justify-content: end;
 
     li {
       margin-right: 25px;
@@ -47,7 +47,7 @@ const Main = styled.section`
 
       @media (max-width: ${({ theme }) => theme.media.mobile}) {
         margin-right: 10px;
-        display: inline-flex;
+       
         padding: 4px 10px;
       }
     }
@@ -151,9 +151,9 @@ export const StudentDetail1 = () => {
       <section>
         <div
           id="show1"
-          className={`headmaster pt-3 ${isEditing ? "editing" : ""}`}
+          className={`headmaster  pt-3 ${isEditing ? "editing" : ""}`}
         >
-          <div className="headmasterbox">
+          <div className="headmasterbox ">
             <ul>
               <li>
                 <span
@@ -288,15 +288,29 @@ const StudentDetail2 = () => {
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
 
     /*====START==========MAIN =========== */
-    .stlist {
+  /* .stlt{
+    height: min-content;
+    margin-top: 20px;
+    background-color:red;
+      @media (max-width: ${({ theme }) => theme.media.mobile}) {
+     margin-top: 0px;
+  }} */
+    .stlist {  
+      position: relative; 
       display: -ms-flexbox;
       -ms-flex: auto;
-      flex: auto;
-      width: 100%;
-      height: 500px;
+      flex: auto; 
+      margin-top: 20px;
+      height: 80vh;
+        overflow-y: auto; 
       justify-content: center;
       align-items: center;
+      @media (max-width: ${({ theme }) => theme.media.mobile}) {
+     margin-top: 40px;
+     width:100vw;
+    
     }
+  }
     .stlist1 {
       background-color: #ffffff;
       width: 100%;
@@ -307,7 +321,7 @@ const StudentDetail2 = () => {
     }
     .stlist01 {
       align-items: start;
-      height: auto;
+      height: auto; 
       align-items: center;
     }
 
@@ -395,20 +409,13 @@ const StudentDetail2 = () => {
       font-weight: bold;
       border: 2px solid #949494;
       display: inline-flex;
-    }
-
-    /*   show data  start === */
-
-    .container-fluid {
-      background-color: ${({ theme }) => theme.colors.backgrountColorGray};
-    }
-    .containerbox {
-      display: block;
-      width: 90%;
+    } 
+    /*   show data  start === */ 
+    
+    .containerbox { 
       align-items: center;
       justify-content: center;
-      color: #3f3e3e;
-      background: white;
+      color: #3f3e3e;  
       font-size: ${({ theme }) => theme.fontSize.headerfontSizeM};
 
       table th {
@@ -421,14 +428,13 @@ const StudentDetail2 = () => {
       }
     }
     @media (max-width: ${({ theme }) => theme.media.mobile}) {
-      .containerbox {
-        font-size: ${({ theme }) => theme.fontSize.headerfontSizeL};
+      .containerbox { 
         width: 100%;
-      }
+      }  
     }
   `;
 
-  const [selectedClass, setSelectedClass] = useState("STD ");
+  const [selectedClass, setSelectedClass] = useState("STD 1");
   const handleSelect = (sd) => {
     setSelectedClass(sd);
   };
@@ -458,9 +464,9 @@ const StudentDetail2 = () => {
   return (
     <Main>
       <section>
-        <div className="container-flui m-0 p-0 ">
+        <div className="  stlt  ">
           <div className="stlist pt-3">
-            <div className="stlist1 d-flex  justify-content-between">
+            <div className="stlist1 d-flex   justify-content-between">
               <div className="stlist01">
                 <DropdownButton
                   className="outer inner  btn btn-primary"
@@ -519,8 +525,8 @@ const StudentDetail2 = () => {
                 </span>
               </div>
             </div>
-            <div className="container-fluid d-flex justify-content-center m-0 ">
-              <div className="containerbox m-0 ">
+            <div className="container-fluid justify-content-center m-0 ">
+              <div className="containerbox w-100 h-100 m-0 ">
                 <table className="table">
                   <thead>
                     <tr>

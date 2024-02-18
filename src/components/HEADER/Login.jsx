@@ -1,7 +1,7 @@
 import React, { useState } from "react"; 
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
-const Login = () => {
+const Login = ({ onSuccess }) => {
 
   const navigate = useNavigate()
 
@@ -10,22 +10,20 @@ const Login = () => {
   const [authenticated, setauthenticated] = useState(
     localStorage.getItem(localStorage.getItem("authenticated") || false)
   );
+  
   const users = [{ username: "Akash", password: "akash47" }];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const account = users.find((user) => user.username === username);
-    if (account && account.password === password) {
-      setauthenticated(true);
-        localStorage.setItem("CPS_user", JSON.stringify({ login: true, username:"Akash" }));
-          const timer = setTimeout(() => {
-         navigate('/StudentDetails')
-        }, 2000);
-       return () => clearTimeout(timer);
-     }
-    else {
-      alert("invaled pass");
-    }
+    const account = users.find((user) => user.username === username); 
+      if (account && account.password === password) {
+        setauthenticated(true);
+        onSuccess();
+        // Set authentication status in localStorage
+        localStorage.setItem("authenticated", true);
+      } else {
+         alert("Invalid username or password");
+      }
   };
 
   return (

@@ -10,7 +10,7 @@ const Header = () => {
   box-shadow:1px 1px 4px   rgba(0, 0, 0, 0.664); 
   display: flex;
   justify-content: space-between;
-  align-items: center;   
+  align-items: center; 
   .HeaderLogo{     
     min-width:230px;
    overflow: hidden; 

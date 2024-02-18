@@ -222,7 +222,7 @@ const Navbar = () => {
               Student
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               className="navbar-link"
               onClick={() => setOpenMenu(false)}
@@ -230,7 +230,7 @@ const Navbar = () => {
             >
               D 
             </NavLink>
-          </li>
+          </li> */}
 
        <li className="rounded" style={{ backgroundColor: "#333f50", padding: "0 20px" }}>
           <NavLink

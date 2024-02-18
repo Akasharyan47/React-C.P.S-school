@@ -13,7 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/HEADER/Header.jsx";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
-import Dashboard from "./components/DASHBOARD/dashboard.jsx"
+import Dashboard from "./components/DASHBOARD/index.jsx"
 // import { Provider } from "react-redux";
 // import { store } from "./app/store";
 
