@@ -2,7 +2,7 @@
  
  const Reviews = () => {
    return (
-     <div>Reviews</div>
+     <div className='mt-5 pt-5'>Reviews</div>
    )
  }
  

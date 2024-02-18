@@ -140,6 +140,7 @@ const Dashboard = () => {
               className="mobile-nav-icon  h1"
               onClick={() => toggleSidebar(true)}
             />
+            
           </button>
 
           <div className="Dashboardcontent">
