@@ -60,10 +60,10 @@ const Login = ({ onSuccess }) => {
 
           <div className="main">
             <input type="checkbox" id="chk" aria-hidden="true" />
-            <label className="d-flex bg-success justify-content-center align-items-end">
+            <label className="d-flex  justify-content-center align-items-end">
               <h1>Login</h1> 
             </label> 
-               <h4 className="w-100 text-white  m-0">Username = Akash  & Password = akash47 </h4>
+               <h4 className="w-100  d-flex tft  justify-content-center  ">Username = Akash  & Password = akash47 </h4>
             <div className="login d-flex  align-items-center justify-content-center h-75 w-100">
               <form
                 className=" d-flex   w-75 p-4 flex-column gap-4"
@@ -71,12 +71,15 @@ const Login = ({ onSuccess }) => {
               >
                 <input
                   type="text"
+                  id="username"
                   name="Username"
                   placeholder=" Enter username "
                   value={username}
                   onChange={(e) => setusername(e.target.value)}
                 />
                 <input
+                 id="password"
+                 value={password} 
                   type="password"
                   name="Password"
                   placeholder=" Enter passpowd "
@@ -132,6 +135,11 @@ const Main = styled.section`
 }
 #chk {
   display: none;
+  
+}
+.tft{
+  font-family: cursive;
+  color: wheat;
 }
 .signup {
   position: relative;
