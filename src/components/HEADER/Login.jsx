@@ -14,13 +14,17 @@ const Login = ({ onSuccess }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const account = users.find((user) => user.username === username); 
-      if (account && account.password === password) {
-        setauthenticated(true);
-        onSuccess(); 
-        localStorage.setItem("authenticated", true);
-      } else {
-         alert("Invalid username or password");
-      }
+    if (account && account.password === password) {
+      setauthenticated(true);
+      localStorage.setItem("authenticated", true);
+  
+      // Adding a delay of 1 second (1000 milliseconds) before calling onSuccess
+      setTimeout(() => {
+          onSuccess();
+      }, 1000);
+  } else {
+      alert("Invalid username or password");
+  } 
   };
 
   return (
@@ -56,10 +60,10 @@ const Login = ({ onSuccess }) => {
 
           <div className="main">
             <input type="checkbox" id="chk" aria-hidden="true" />
-            <label className="d-flex justify-content-center align-items-end">
-              <h1>  Login Details </h1>
+            <label className="d-flex bg-success justify-content-center align-items-end">
+              <h1>Login</h1> 
             </label> 
-               
+               <h4 className="w-100 text-white  m-0">Username = Akash  & Password = akash47 </h4>
             <div className="login d-flex  align-items-center justify-content-center h-75 w-100">
               <form
                 className=" d-flex   w-75 p-4 flex-column gap-4"
@@ -78,7 +82,7 @@ const Login = ({ onSuccess }) => {
                   placeholder=" Enter passpowd "
                   onChange={(e) => setpassword(e.target.value)}
                 />
-                <p className="w-100 text-white  m-0">Username = Akash  & Password = akash47  </p>
+                <p className="w-100 text-white  m-0">  </p>
                 <button
                   type="submit"
                   className="button w-50  align-self-end mt-4 "

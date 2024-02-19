@@ -74,16 +74,7 @@ a {
 .sidebar-offcanvas.show {
   transform: translateX(0);
 }
-
-.closebtn { 
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
-}
-
-.closebtn.show {
-  transform: translateX(30%);
-}
-
+ 
 .Dashboardcontent {
   flex: 1; 
   /* border: 1px solid gray; */

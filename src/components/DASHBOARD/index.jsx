@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MessagingComponent from "./MessagingComponent";
 import Profile from "./profile";
@@ -11,9 +12,13 @@ import Login from "../HEADER/Login.jsx";
 import { CgMenu, CgCloseR } from "react-icons/cg";
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(window.innerWidth >= 768);
+  const [showMobileNavIcon, setShowMobileNavIcon] = useState(false);
+
   const [selectedOption, setSelectedOption] = useState("dashboard");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [auth, setAuth] = useState(false);
+  const navigator = useNavigate();
+
   useEffect(() => {
     const handleResize = () => {
       setShowSidebar(window.innerWidth >= 768);
@@ -23,17 +28,21 @@ const Dashboard = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
+ 
   useEffect(() => {
     const authenticated = localStorage.getItem("authenticated") === "true";
     setIsLoggedIn(authenticated);
     if (authenticated) {
-      setSelectedOption("profile");
+      setAuth(true) 
+      setSelectedOption("profile"); 
+      
     }
   }, []);
+
+  const toggleSidebar = (value) => {
+    setShowSidebar(!showSidebar);
+    setShowMobileNavIcon(value);
+  };  
 
   const handleItemClick = (option) => {
     if (!isLoggedIn) {
@@ -49,6 +58,14 @@ const Dashboard = () => {
     setSelectedOption("profile");
   };
 
+  const logoutBtn = () => { 
+    alert("LOGOUT")
+    localStorage.removeItem("authenticated");
+    window.opener = null;
+    navigator("/");
+    window.close(); 
+  }; 
+  
   return (
     <div className="container-fluid">
       <div className="row ">
@@ -56,11 +73,11 @@ const Dashboard = () => {
           <div className="sidebar-offcanvas-content">
             <div className="sidebar-navbar pt-1">
               {/* <div className="w-100 pt-4 d-flex justify-content-end"> */}
-              <div className={`w-100 pt-4 d-flex justify-content-end ${showSidebar ? "" : "d-none"}`}>
-          <CgCloseR
-            className="h2 close-outline mobile-nav-icon text-white"
-            onClick={() => toggleSidebar(false)}
-          />
+              <div className='w-100 pt-4 d-flex justify-content-end '>
+        <CgCloseR
+        className={`h2 close-outline mobile-nav-icon text-white ${showMobileNavIcon ? "d-block" : "d-none"}`}
+        onClick={() =>toggleSidebar(false)}
+       />
         </div>
 
               <button
@@ -124,8 +141,10 @@ const Dashboard = () => {
               >
                 Manage Account
               </button>
-
-              <button className="btn-sidebar">Logout</button>
+              {auth ? (<>
+                <button className="btn-sidebar" onClick={logoutBtn}>Logout</button> 
+               </>):(null) }
+  
             </div>
           </div>
         </div>
@@ -142,7 +161,10 @@ const Dashboard = () => {
 
           <div className="Dashboardcontent">
             {isLoggedIn ? (
-              <>{selectedOption === "dashboard" && <div></div>}</>
+              <>
+              
+              {selectedOption === "dashboard" && <div></div>}
+              </>
             ) : (
               <>
                 <Login onSuccess={handleLoginSuccess} />
@@ -157,6 +179,7 @@ const Dashboard = () => {
             {selectedOption === "AddTeachersDetails" && <AddTeachersDetails />}
             {selectedOption === "reviews" && <Reviews />}
             {selectedOption === "manage-account" && <ManageAccount />}
+
           </div>
         </div>
       </div>

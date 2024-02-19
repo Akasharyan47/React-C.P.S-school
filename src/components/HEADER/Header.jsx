@@ -11,11 +11,11 @@ const Header = () => {
   display: flex;
   justify-content: space-between;
   align-items: center; 
-  .HeaderLogo{     
-    min-width:230px;
+  .HeaderLogo{      
+    min-width:auto;
    overflow: hidden; 
    display: flex;  
-   justify-content: space-between;
+    
    align-items: center;  
    }  
    .logo {
@@ -23,9 +23,10 @@ const Header = () => {
     height: 80px;
   } 
   .lgnme { 
-    display: block; 
+    min-width:200px;
+  display: block; 
    color: #595959;  
-  font-size:1.9rem; 
+  font-size:17px; 
   font-weight:bolder;  
   text-decoration:none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
